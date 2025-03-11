@@ -1,3 +1,40 @@
+/**
+ * @fileoverview Product and Order Management Backend API | NodeJS Training Test
+ * @description This is a Node.js-based backend API for an e-commerce usecase. It provides features such as authentication,
+ * product management, order processing, and review handling. The API follows the MVC architecture with structured routing
+ * and middleware for security, validation, and error handling.
+ *
+ * @version 1.0.0
+ * @author buland
+ * @mentors Rahul Sir, Hiten Sir and Dhruv Sir
+ *
+ * @requires express
+ * @requires dotenv
+ * @requires cors
+ * @requires morgan
+ * @requires path
+ * @requires mongoose
+ *
+ * @project E-Commerce API
+ * @architecture MVC (Model-View-Controller)
+ * @database MongoDB
+ *
+ * @features
+ * - User Authentication (JWT-based login & registration)
+ * - Product Management (CRUD operations, Image Uploads)
+ * - Order Management (Placement, Updates, Status Tracking)
+ * - Review & Rating System
+ * - Secure Routes with Middleware
+ * - Error Handling & Logging
+ *
+ * @usage
+ * 1. Clone the repository: `git clone https://github.com/yourusername/your-repo.git`
+ * 2. Install dependencies: `npm install`
+ * 3. Create a `.env` file and configure environment variables
+ * 4. Start the server: `npm start`
+ * 5. API is accessible at `http://localhost:5000`
+ */
+
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
