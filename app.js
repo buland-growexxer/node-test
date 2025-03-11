@@ -28,7 +28,7 @@
  * - Error Handling & Logging
  *
  * @usage
- * 1. Clone the repository: `git clone https://github.com/yourusername/your-repo.git`
+ * 1. Clone the repository: `git clone https://github.com/buland-growexxer/node-test.git`
  * 2. Install dependencies: `npm install`
  * 3. Create a `.env` file and configure environment variables
  * 4. Start the server: `npm start`
