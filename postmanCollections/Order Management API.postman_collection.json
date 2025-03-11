@@ -1,0 +1,895 @@
+{
+	"info": {
+		"_postman_id": "b2beb17c-8fd5-48b4-a511-dc88345a78d7",
+		"name": "Order Management API",
+		"description": "a. POST /api/orders: Place a new order, specifying customerName,  \ncustomerEmail, and a list of product IDs with their respective  \nquantities.\n\nb. PATCH /api/orders/:id: Update the status of an order (Pending, Shipped, Delivered).\n\nc.  \nGET /api/orders/:id: Retrieve the details of a specific order,  \nincluding the list of products, their quantities, and total price.\n\nd. GET /api/orders: List all orders with support for:\n\ni. Filtering by status (e.g., ?status=Shipped)\n\nii. Pagination (e.g., ?page=1&limit=10)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42841488"
+	},
+	"item": [
+		{
+			"name": "[ POST ] - User Registration",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Buland Shah\",\n  \"email\": \"buland.s@ahduni.edu.in\",\n  \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - User Registration",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Buland Shah\",\n  \"email\": \"buland.s@ahduni.edu.in\",\n  \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "235"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"eb-ZT5h0E13Q2X706Bm3ksSF058SbI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 10:01:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"user\": {\n        \"name\": \"Buland Shah\",\n        \"email\": \"buland.s@ahduni.edu.in\",\n        \"password\": \"$2b$10$bjUlpYThi1NjbZ53ANZDbegm9HFxwZ2MotCJQXza.QpIPR61MOhRS\",\n        \"_id\": \"67d00a0b6ca776dd25e5f8fc\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ POST ] - User Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"buland.s@ahduni.edu.in\",\n  \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - User Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"buland.s@ahduni.edu.in\",\n  \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "449"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c1-bJxCiJTjth7HjF2MxzicLsfP2ms\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 10:33:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk\",\n    \"user\": {\n        \"_id\": \"67d0116308b7ee705d3daaf2\",\n        \"name\": \"Buland Shah\",\n        \"email\": \"buland.s@ahduni.edu.in\",\n        \"password\": \"$2b$10$66P6Xa2m1N/wo3mMHAUrZOh/TP9lhQF4XO/epzzDf1O4amW59ALjW\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ POST ] - Place an order",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Buland Shah\",\n  \"customerEmail\": \"buland.s@ahduni.edu.in\",\n  \"products\": [\n    {\n      \"productId\": \"67cfe9db591b9813391ea04b\",\n      \"quantity\": 2\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - Place an order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerName\": \"Buland Shah\",\n  \"customerEmail\": \"buland.s@ahduni.edu.in\",\n  \"products\": [\n    {\n      \"productId\": \"67cfe9db591b9813391ea04b\",\n      \"quantity\": 2\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "350"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15e-8ldgAC2GDPJ5Tt9CtoUA9q+mVyk\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 10:38:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"order\": {\n        \"customerName\": \"Buland Shah\",\n        \"customerEmail\": \"buland.s@ahduni.edu.in\",\n        \"products\": [\n            {\n                \"product\": \"67cfe9db591b9813391ea04b\",\n                \"quantity\": 2,\n                \"_id\": \"67d012a808b7ee705d3daaf8\"\n            }\n        ],\n        \"totalPrice\": 2218,\n        \"status\": \"Pending\",\n        \"_id\": \"67d012a808b7ee705d3daaf7\",\n        \"createdAt\": \"2025-03-11T10:38:32.274Z\",\n        \"updatedAt\": \"2025-03-11T10:38:32.274Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ POST ] - Place an order (Make stock empty)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Buland Shah\",\n  \"customerEmail\": \"buland.s@ahduni.edu.in\",\n  \"products\": [\n    {\n      \"productId\": \"67cfe9db591b9813391ea04b\",\n      \"quantity\": 2\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - Place an order Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerName\": \"Buland Shah\",\n  \"customerEmail\": \"buland.s@ahduni.edu.in\",\n  \"products\": [\n    {\n      \"productId\": \"67cfe9db591b9813391ea04b\",\n      \"quantity\": 10\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "352"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"160-0OM9FFcVRrwnzHr4wGRZHel75Ug\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 11:54:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"order\": {\n        \"customerName\": \"Buland Shah\",\n        \"customerEmail\": \"buland.s@ahduni.edu.in\",\n        \"products\": [\n            {\n                \"product\": \"67cfe9db591b9813391ea04b\",\n                \"quantity\": 10,\n                \"_id\": \"67d0245fbc7bf1f044ff8607\"\n            }\n        ],\n        \"totalPrice\": 11090,\n        \"status\": \"Pending\",\n        \"_id\": \"67d0245fbc7bf1f044ff8606\",\n        \"createdAt\": \"2025-03-11T11:54:07.939Z\",\n        \"updatedAt\": \"2025-03-11T11:54:07.939Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ POST ] - Place an order (stock already empty)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"Buland Shah\",\n  \"customerEmail\": \"buland.s@ahduni.edu.in\",\n  \"products\": [\n    {\n      \"productId\": \"67cfe9db591b9813391ea04b\",\n      \"quantity\": 2\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - Place an order (stock already empty)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerName\": \"Buland Shah\",\n  \"customerEmail\": \"buland.s@ahduni.edu.in\",\n  \"products\": [\n    {\n      \"productId\": \"67cfe9db591b9813391ea04b\",\n      \"quantity\": 2\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-YLmLFc5PI9abwzauBFKbA20HytQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 11:55:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Insufficient stock for Test Product\"\n}"
+				}
+			]
+		},
+		{
+			"name": "[ PATCH ] - Update Order Details",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"Shipped\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/orders/67d012a808b7ee705d3daaf7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders",
+						"67d012a808b7ee705d3daaf7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[PATCH ] - Update Order Details",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"Shipped\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders/67d012a808b7ee705d3daaf7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"67d012a808b7ee705d3daaf7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "350"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15e-mHyfKnnotRM2yfecgnJl33xsGCg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 10:43:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"order\": {\n        \"_id\": \"67d012a808b7ee705d3daaf7\",\n        \"customerName\": \"Buland Shah\",\n        \"customerEmail\": \"buland.s@ahduni.edu.in\",\n        \"products\": [\n            {\n                \"product\": \"67cfe9db591b9813391ea04b\",\n                \"quantity\": 2,\n                \"_id\": \"67d012a808b7ee705d3daaf8\"\n            }\n        ],\n        \"totalPrice\": 2218,\n        \"status\": \"Shipped\",\n        \"createdAt\": \"2025-03-11T10:38:32.274Z\",\n        \"updatedAt\": \"2025-03-11T10:43:41.456Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ GET ] - Get order details by ID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/orders/67d012a808b7ee705d3daaf7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders",
+						"67d012a808b7ee705d3daaf7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ GET ] - Get order details by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/orders/67d012a808b7ee705d3daaf7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"67d012a808b7ee705d3daaf7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "677"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a5-SmclZN+pUqtZxc/qtgfRKxUzDe4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 10:46:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"order\": {\n        \"_id\": \"67d012a808b7ee705d3daaf7\",\n        \"customerName\": \"Buland Shah\",\n        \"customerEmail\": \"buland.s@ahduni.edu.in\",\n        \"products\": [\n            {\n                \"product\": {\n                    \"_id\": \"67cfe9db591b9813391ea04b\",\n                    \"name\": \"Test Product\",\n                    \"description\": \"This is a test product\",\n                    \"price\": 1109,\n                    \"category\": \"Electronics\",\n                    \"images\": [\n                        \"/uploads/1741679067708-luffy.jpg\",\n                        \"/uploads/1741679441439-eren.jpeg\",\n                        \"/uploads/1741679441439-luffy.jpg\"\n                    ],\n                    \"averageRating\": 0,\n                    \"createdAt\": \"2025-03-11T07:44:27.736Z\",\n                    \"updatedAt\": \"2025-03-11T07:50:41.479Z\",\n                    \"__v\": 1\n                },\n                \"quantity\": 2,\n                \"_id\": \"67d012a808b7ee705d3daaf8\"\n            }\n        ],\n        \"totalPrice\": 2218,\n        \"status\": \"Shipped\",\n        \"createdAt\": \"2025-03-11T10:38:32.274Z\",\n        \"updatedAt\": \"2025-03-11T10:43:41.456Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ GET ] - List Orders with Filters (Shipped Orders)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/orders?page=1&limit=5&status=Shipped",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "status",
+							"value": "Shipped"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ GET ] - List Orders with Filters (Shipped Orders)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDAxMTYzMDhiN2VlNzA1ZDNkYWFmMiIsImVtYWlsIjoiYnVsYW5kLnNAYWhkdW5pLmVkdS5pbiIsImlhdCI6MTc0MTY4OTIwMSwiZXhwIjoxNzQyMjk0MDAxfQ.nmdE7l6yfMUOlCUho8eB7KnKa5UxJHNE9r56jWO1Ybk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/orders?page=1&limit=5&status=Shipped",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "status",
+									"value": "Shipped"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "680"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a8-Cw3+07B09QxKtkwY5fQKKKU1ilE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 10:49:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"orders\": [\n        {\n            \"_id\": \"67d012a808b7ee705d3daaf7\",\n            \"customerName\": \"Buland Shah\",\n            \"customerEmail\": \"buland.s@ahduni.edu.in\",\n            \"products\": [\n                {\n                    \"product\": {\n                        \"_id\": \"67cfe9db591b9813391ea04b\",\n                        \"name\": \"Test Product\",\n                        \"description\": \"This is a test product\",\n                        \"price\": 1109,\n                        \"category\": \"Electronics\",\n                        \"images\": [\n                            \"/uploads/1741679067708-luffy.jpg\",\n                            \"/uploads/1741679441439-eren.jpeg\",\n                            \"/uploads/1741679441439-luffy.jpg\"\n                        ],\n                        \"averageRating\": 0,\n                        \"createdAt\": \"2025-03-11T07:44:27.736Z\",\n                        \"updatedAt\": \"2025-03-11T07:50:41.479Z\",\n                        \"__v\": 1\n                    },\n                    \"quantity\": 2,\n                    \"_id\": \"67d012a808b7ee705d3daaf8\"\n                }\n            ],\n            \"totalPrice\": 2218,\n            \"status\": \"Shipped\",\n            \"createdAt\": \"2025-03-11T10:38:32.274Z\",\n            \"updatedAt\": \"2025-03-11T10:43:41.456Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

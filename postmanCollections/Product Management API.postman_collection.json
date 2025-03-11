@@ -1,0 +1,684 @@
+{
+	"info": {
+		"_postman_id": "781995f3-a6c4-4571-abd1-8733902abe08",
+		"name": "Product Management API",
+		"description": "a. POST /api/products: Add a new product with name, description, price, category, and multiple images.\n\nb. PATCH /api/products/:id: Update the details of a product (including price and description).\n\nc. GET /api/products: List all products with support for:\n\ni. Filtering by category\n\nii. Pagination (e.g., ?page=1&limit=10)\n\niii. Sorting by price (ascending or descending)\n\niv. Average rating displayed alongside each product\n\nd. POST /api/products/:id/reviews: Add a review to a product (1-5 stars, with an optional comment).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42841488"
+	},
+	"item": [
+		{
+			"name": "[ POST ] - Add a product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Laptop\",\n  \"description\": \"High-performance gaming laptop\",\n  \"price\": 1500,\n  \"category\": \"Electronics\",\n  \"stock\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - Add a product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Laptop\",\n  \"description\": \"High-performance gaming laptop\",\n  \"price\": 1500,\n  \"category\": \"Electronics\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "275"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"113-hg/Xy1x/p/zbKS3dO9JSNSB4/oA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 07:06:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"Laptop\",\n        \"description\": \"High-performance gaming laptop\",\n        \"price\": 1500,\n        \"category\": \"Electronics\",\n        \"images\": [],\n        \"averageRating\": 0,\n        \"_id\": \"67cfe105c2d6d9d35391776c\",\n        \"createdAt\": \"2025-03-11T07:06:45.373Z\",\n        \"updatedAt\": \"2025-03-11T07:06:45.373Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ GET ] - Get all products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ GET ] - Get all products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "277"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"115-UvNxul3FSoDnb4CZUe91vYbogho\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 07:09:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"_id\": \"67cfe105c2d6d9d35391776c\",\n            \"name\": \"Laptop\",\n            \"description\": \"High-performance gaming laptop\",\n            \"price\": 1500,\n            \"category\": \"Electronics\",\n            \"images\": [],\n            \"averageRating\": 0,\n            \"createdAt\": \"2025-03-11T07:06:45.373Z\",\n            \"updatedAt\": \"2025-03-11T07:06:45.373Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "[ PATCH ] - Update a product by id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"price\": 1300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/67cfe105c2d6d9d35391776c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"67cfe105c2d6d9d35391776c"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ PATCH ] - Update a product by id",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"price\": 1300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/67cfe105c2d6d9d35391776c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"67cfe105c2d6d9d35391776c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "275"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"113-sb3epvQJAmc+oNrFNDMXU17b2PI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 07:13:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"67cfe105c2d6d9d35391776c\",\n        \"name\": \"Laptop\",\n        \"description\": \"High-performance gaming laptop\",\n        \"price\": 1300,\n        \"category\": \"Electronics\",\n        \"images\": [],\n        \"averageRating\": 0,\n        \"createdAt\": \"2025-03-11T07:06:45.373Z\",\n        \"updatedAt\": \"2025-03-11T07:13:32.679Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ POST ] - Add review for product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"rating\": 5,\n  \"comment\": \"Excellent like Rahul sir's teaching !\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/67cfe105c2d6d9d35391776c/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"67cfe105c2d6d9d35391776c",
+						"reviews"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - Add review for product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 5,\n  \"comment\": \"Excellent like Rahul sir's teaching !\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/67cfe105c2d6d9d35391776c/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"67cfe105c2d6d9d35391776c",
+								"reviews"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "244"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f4-QCqb4O/79KqijTjSkjN0Z3TvbjI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 07:18:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"productId\": \"67cfe105c2d6d9d35391776c\",\n        \"rating\": 5,\n        \"comment\": \"Excellent like Rahul sir's teaching !\",\n        \"_id\": \"67cfe3bfc2d6d9d353917770\",\n        \"createdAt\": \"2025-03-11T07:18:23.080Z\",\n        \"updatedAt\": \"2025-03-11T07:18:23.080Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ POST ] - Add product with image",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Test Product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is a test product",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1109",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Electronics",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": "postman-cloud:///1effe4c3-eaa9-4130-91af-bc32e155305d"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ POST ] - Add product with image",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Product",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test product",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1109",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Electronics",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "postman-cloud:///1effe4c3-eaa9-4130-91af-bc32e155305d"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "351"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15f-t1Ztfzdtg38LLgBXA+7PnJAMCJQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 07:44:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Product created successfully\",\n    \"product\": {\n        \"name\": \"Test Product\",\n        \"description\": \"This is a test product\",\n        \"price\": 1109,\n        \"category\": \"Electronics\",\n        \"images\": [\n            \"/uploads/1741679067708-luffy.jpg\"\n        ],\n        \"averageRating\": 0,\n        \"_id\": \"67cfe9db591b9813391ea04b\",\n        \"createdAt\": \"2025-03-11T07:44:27.736Z\",\n        \"updatedAt\": \"2025-03-11T07:44:27.736Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "[ PATCH ] - Update product with multiple images",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1effe4d8-0246-4360-b55e-27967f0b1721",
+								"postman-cloud:///1effe4c3-eaa9-4130-91af-bc32e155305d"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/67cfe9db591b9813391ea04b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"67cfe9db591b9813391ea04b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "[ PATCH ] - Update product with multiple images",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1effe4d8-0246-4360-b55e-27967f0b1721",
+										"postman-cloud:///1effe4c3-eaa9-4130-91af-bc32e155305d"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/67cfe9db591b9813391ea04b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"67cfe9db591b9813391ea04b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "421"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a5-uLWC+MYAX2CtN/w4p0NPmrbk/3g\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Mar 2025 07:50:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Product updated successfully\",\n    \"product\": {\n        \"_id\": \"67cfe9db591b9813391ea04b\",\n        \"name\": \"Test Product\",\n        \"description\": \"This is a test product\",\n        \"price\": 1109,\n        \"category\": \"Electronics\",\n        \"images\": [\n            \"/uploads/1741679067708-luffy.jpg\",\n            \"/uploads/1741679441439-eren.jpeg\",\n            \"/uploads/1741679441439-luffy.jpg\"\n        ],\n        \"averageRating\": 0,\n        \"createdAt\": \"2025-03-11T07:44:27.736Z\",\n        \"updatedAt\": \"2025-03-11T07:50:41.479Z\",\n        \"__v\": 1\n    }\n}"
+				}
+			]
+		}
+	]
+}

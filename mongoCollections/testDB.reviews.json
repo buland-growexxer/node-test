@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "67cfe3bfc2d6d9d353917770"
+  },
+  "productId": {
+    "$oid": "67cfe105c2d6d9d35391776c"
+  },
+  "rating": 5,
+  "comment": "Excellent like Rahul sir's teaching !",
+  "createdAt": {
+    "$date": "2025-03-11T07:18:23.080Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-11T07:18:23.080Z"
+  },
+  "__v": 0
+}]

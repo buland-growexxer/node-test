@@ -1,0 +1,25 @@
+module.exports = {
+  SUCCESS: {
+    USER_REGISTERED: "User registered successfully.",
+    LOGIN_SUCCESS: "Login successful.",
+    ORDER_PLACED: "Order placed successfully.",
+    ORDER_UPDATED: "Order status updated successfully.",
+    PRODUCT_CREATED: "Product created successfully.",
+    PRODUCT_UPDATED: "Product updated successfully.",
+    REVIEW_ADDED: "Review added successfully.",
+  },
+  ERROR: {
+    EMAIL_ALREADY_REGISTERED: "Email is already registered.",
+    USER_NOT_FOUND: "User not found.",
+    INVALID_PASSWORD: "Invalid password.",
+    INVALID_TOKEN: "Invalid or expired token.",
+    NO_TOKEN: "Access denied. No token provided.",
+    UNAUTHORIZED_ACCESS: "Access denied. No token provided.",
+    PRODUCT_NOT_FOUND: "Product not found for",
+    INSUFFICIENT_STOCK: "Insufficient stock for ",
+    ORDER_NOT_FOUND: "Order not found.",
+    ONLY_IMAGES_ALLOWED: "Only image files are allowed!",
+    IMAGE_REQUIRED: "At least one image is required.",
+    INTERNAL_SERVER_ERROR: "Something went wrong. Please try again later.",
+  },
+};

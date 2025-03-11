@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67cfe105c2d6d9d35391776c"
+  },
+  "name": "Laptop",
+  "description": "High-performance gaming laptop",
+  "price": 1300,
+  "category": "Electronics",
+  "images": [],
+  "averageRating": 5,
+  "createdAt": {
+    "$date": "2025-03-11T07:06:45.373Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-11T07:18:23.171Z"
+  },
+  "__v": 0,
+  "stock": "10"
+},
+{
+  "_id": {
+    "$oid": "67cfe9db591b9813391ea04b"
+  },
+  "name": "Test Product",
+  "description": "This is a test product",
+  "price": 1109,
+  "category": "Electronics",
+  "images": [
+    "/uploads/1741679067708-luffy.jpg",
+    "/uploads/1741679441439-eren.jpeg",
+    "/uploads/1741679441439-luffy.jpg"
+  ],
+  "averageRating": 0,
+  "createdAt": {
+    "$date": "2025-03-11T07:44:27.736Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-11T11:54:07.848Z"
+  },
+  "__v": 1,
+  "stock": 0
+}]

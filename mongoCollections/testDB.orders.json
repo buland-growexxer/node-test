@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "67d012a808b7ee705d3daaf7"
+  },
+  "customerName": "Buland Shah",
+  "customerEmail": "buland.s@ahduni.edu.in",
+  "products": [
+    {
+      "product": {
+        "$oid": "67cfe9db591b9813391ea04b"
+      },
+      "quantity": 2,
+      "_id": {
+        "$oid": "67d012a808b7ee705d3daaf8"
+      }
+    }
+  ],
+  "totalPrice": 2218,
+  "status": "Shipped",
+  "createdAt": {
+    "$date": "2025-03-11T10:38:32.274Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-11T10:43:41.456Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d0245fbc7bf1f044ff8606"
+  },
+  "customerName": "Buland Shah",
+  "customerEmail": "buland.s@ahduni.edu.in",
+  "products": [
+    {
+      "product": {
+        "$oid": "67cfe9db591b9813391ea04b"
+      },
+      "quantity": 10,
+      "_id": {
+        "$oid": "67d0245fbc7bf1f044ff8607"
+      }
+    }
+  ],
+  "totalPrice": 11090,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-03-11T11:54:07.939Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-11T11:54:07.939Z"
+  },
+  "__v": 0
+}]
